@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionário de Tipo de Pele</title>
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="../css/av2_bootstrap.min.css" rel="stylesheet">
+    <link href="../css/av1_bootstrap-icons.css" rel="stylesheet">
+    <link href="../css/av2_magnific-popup.css" rel="stylesheet">
+    <link href="../css/av1_tooplate-waso-strategy.css" rel="stylesheet">
+</head>
+<body>
+    <section class="services section-padding" id="section_3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-12 text-center mx-auto mb-5">
+                    <small class="small-title">RESPONDER <strong class="text-black">QUESTIONÁRIO</strong></small>
+                    <h2>Descubra o seu tipo de pele</h2>
+                </div>
+
+                <div class="col-lg-6 col-12 mb-5 mb-lg-0">
+                    <div class="about-image-wrap h-100">
+                        <img src="../images/mulheres-diferentes.jpeg" class="img-fluid about-image" alt="">
+                        <div class="about-image-info">
+                            <h4 class="text-white">DICA:</h4>
+                            <p class="text-white mb-0">O MELHOR TRATAMENTO PARA A BELEZA É O AUTOCUIDADO.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-12 d-flex flex-column">
+                    <div class="about-thumb bg-white shadow-lg" style="margin-bottom: 0px;">
+                        <div class="about-info">
+                            <form id="questionario">
+                                <h5 class="mb-3">1. Sua pele geralmente tem um brilho excessivo?</h5>
+                                <p>
+                                    <label><input type="radio" name="q1" value="Oleosa,Mista" required> Sim</label><br>
+                                    <label><input type="radio" name="q1" value="Normal,Mista" required> Às vezes</label><br>
+                                    <label><input type="radio" name="q1" value="Seca" required> Não</label>
+                                </p>
+                                <hr>
+
+                                <h5 class="mb-3">2. Você possui acne e cravos?</h5>
+                                <p>
+                                    <label><input type="radio" name="q2" value="Oleosa,Normal,Mista" required> Sim</label><br>
+                                    <label><input type="radio" name="q2" value="Oleosa,Normal,Mista" required> Às vezes</label><br>
+                                    <label><input type="radio" name="q2" value="Seca,Normal,Mista" required> Não</label>
+                                </p>
+                                <hr>
+
+                                <h5 class="mb-3">3. Seus poros são dilatados?</h5>
+                                <p>
+                                    <label><input type="radio" name="q3" value="Oleosa,Normal,Mista" required> Sim</label><br>
+                                    <label><input type="radio" name="q3" value="Seca,Normal,Mista" required> Não</label>
+                                </p>
+                                <hr>
+
+                                <h5 class="mb-3">4. Os problemas mencionados anteriormente estão apenas na zona T?</h5>
+                                <p>
+                                    <label><input type="radio" name="q4" value="Mista" required> Sim</label><br>
+                                    <label><input type="radio" name="q4" value="Oleosa,Seca,Normal" required> Não</label>
+                                </p>
+                                <hr>
+
+                                <h5 class="mb-3">5. Seu rosto possui descamação ou é seco?</h5>
+                                <p>
+                                    <label><input type="radio" name="q5" value="Seca,Mista" required> Sim</label><br>
+                                    <label><input type="radio" name="q5" value="Mista" required> Algumas partes</label><br>
+                                    <label><input type="radio" name="q5" value="Oleosa,Normal" required> Não</label>
+                                </p>
+                                <hr>
+
+                                <br>
+                                <div style="text-align: center;">
+                                    <button id="ver_resultado" type="button" onclick="calcularResultado()" style="border-radius: 100px; padding: 12px 24px;">Ver Resultado</button>
+                                </div>
+                            </form>
+                            <br>
+                            <div id="resultado" style="text-align:center;color:red;font-size:20px"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function calcularResultado() {
+            const form = document.forms['questionario'];
+            let allAnswered = true;
+            
+            // Verificacao se todas as perguntas foram respondidas
+            for (let i = 1; i <= 5; i++) {
+                const radios = form[`q${i}`];
+                let questionAnswered = false;
+                for (let radio of radios) {
+                    if (radio.checked) {
+                        questionAnswered = true;
+                        break;
+                    }
+                }
+                if (!questionAnswered) {
+                    allAnswered = false;
+                    break;
+                }
+            }
+
+            if (!allAnswered) {
+                document.getElementById('resultado').innerText = 'Por favor, responda todas as perguntas.';
+                return;
+            }
+
+            const pontos = {
+                Seca: 0,
+                Oleosa: 0,
+                Normal: 0,
+                Mista: 0
+            };
+
+            for (let i = 1; i <= 5; i++) {
+                const resposta = form[`q${i}`].value;
+                if (resposta) {
+                    const tipos = resposta.split(',');
+                    tipos.forEach(tipo => {
+                        pontos[tipo]++;
+                    });
+                }
+            }
+
+            const tipoDePele = Object.keys(pontos).reduce((a, b) => pontos[a] > pontos[b] ? a : b);
+            
+            if (tipoDePele == "Seca") {
+                sessionStorage.setItem("tipoDePele", 1);
+            }
+            else if (tipoDePele == "Oleosa") {
+                sessionStorage.setItem("tipoDePele", 2);
+            }
+            else if (tipoDePele == "Normal") {
+                sessionStorage.setItem("tipoDePele", 3);
+            }
+            else if (tipoDePele == "Mista") {
+                sessionStorage.setItem("tipoDePele", 4);
+            }
+            location.assign("../index.html#section_2")
+        }
+    </script>
+</body>
+</html>

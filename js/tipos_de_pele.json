@@ -1,0 +1,86 @@
+{
+  "Seca": {
+    "nome": "Seca",
+    "imagem_url": "pele seca.jpeg",
+    "frase_de_efeito": "Rigidez intensa ao redor do rosto",
+    "caracteristicas": [
+      "Falta de óleo e possivelmente de hidratação.",
+      "Sensação de rigidez ou aspereza, especialmente após a limpeza.",
+      "Pode apresentar descamação ou áreas ásperas."
+    ],
+    "causas": [
+      "Genética;",
+      "Envelhecimento ou mudanças hormonais;",
+      "Clima frio e seco;",
+      "Banhos muito quentes;",
+      "Uso de produtos inadequados."
+    ],
+    "cuidados": [
+      "Uso de limpeza hidratante sem álcool ou fragrâncias irritantes;",
+      "Hidratantes ricos em emolientes e ingredientes que retêm a umidade;",
+      "Uso frequente de máscaras hidratantes e óleos faciais."
+    ]
+  },
+  "Oleosa": {
+    "nome": "Oleosa",
+    "imagem_url": "pele oleosa.png",
+    "frase_de_efeito": "Oleosidade concentrada em torno do rosto",
+    "caracteristicas": [
+      "Produção excessiva de sebo.",
+      "Brilho constante em todo o rosto.",
+      "Poros visíveis e dilatados.",
+      "Propensão a acne e cravos."
+    ],
+    "causas": [
+      "Genética;",
+      "Flutuações hormonais;",
+      "Estresse e dieta;",
+      "Uso excessivo de produtos inadequados."
+    ],
+    "cuidados": [
+      "Limpeza com produtos formulados para pele oleosa;",
+      "Uso de hidratantes leves e não-comedogênicos;",
+      "Uso regular de produtos com ácidos como salicílico para controlar a oleosidade e desobstruir poros."
+    ]
+  },
+  "Normal": {
+    "nome": "Normal",
+    "imagem_url": "pele normal.jpg",
+    "frase_de_efeito": "Rigidez e oleosidade do rosto equilibrados",
+    "caracteristicas": [
+      "Equilibrada em hidratação e produção de óleo.",
+      "Textura suave e uniforme.",
+      "Poros pouco visíveis.",
+      "Raramente apresenta espinhas ou sensibilidade."
+    ],
+    "causas": [
+      "Genética favorável;",
+      "Bom equilíbrio hormonal;",
+      "Cuidados adequados com a pele."
+    ],
+    "cuidados": [
+      "Limpeza suave para não desbalancear os óleos naturais;",
+      "Hidratação leve;",
+      "Uso de protetor solar regularmente."
+    ]
+  },
+  "Mista": {
+    "nome": "Mista",
+    "imagem_url": "pele mista.jpeg",
+    "frase_de_efeito": "Rigidez e oleosidade em áreas localizadas no rosto",
+    "caracteristicas": [
+      "Combinação de áreas oleosas na zona T e secas nas bochechas.",
+      "Poros dilatados na zona T e poros normais ou secos em outras áreas.",
+      "Pode ter áreas tanto com acne quanto com descamação."
+    ],
+    "causas": [
+      "Genética;",
+      "Distribuição desigual de glândulas sebáceas."
+    ],
+    "cuidados": [
+      "Uso de produtos específicos para áreas diferentes do rosto;",
+      "Limpeza balanceada que não resseque as partes secas nem aumente a oleosidade nas partes oleosas;",
+      "Hidratação e controle de oleosidade localizados."
+    ]
+  }
+}

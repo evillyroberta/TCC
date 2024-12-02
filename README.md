@@ -1,1 +1,1 @@
-# TCC
+# TCC-Skin-Scanner

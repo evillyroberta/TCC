@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="description" content="">
+  <meta name="author" content="Tooplate">
+</head>
+<body>
+  <h1 id="tipo"></h1>
+  <h1 id="armazenamento"></h1>
+  <script>
+    let tipoDePele = sessionStorage.getItem("tipoDePele")
+
+    const tipo = document.getElementById('tipo')
+    tipo.innerHTML = `${tipoDePele}`
+    if(tipoDePele) {
+      document.getElementById('armazenamento').innerHTML = `Há valor armazenado no navegador`
+    }
+    else {
+      document.getElementById('armazenamento').innerHTML = `Não há valor armazenado no navegador`
+    }
+  </script>
+</body>
+</html>
